@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import css from './ContactForm.module.css'
+import { useContacts } from 'hooks/useContacts';
 
-export function Form({ onData }) {
-  
+export function Form() {
+const [ , onAddContact, ] = useContacts(); 
 const initialState = {
   name: '',
   number: '',
@@ -21,7 +22,7 @@ const initialState = {
 
   const handleSubmit = event => {
     event.preventDefault();
-    onData({ ...state });
+    onAddContact({ ...state });
     setState({ ...initialState });
   };
 

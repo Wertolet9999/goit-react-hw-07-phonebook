@@ -1,21 +1,17 @@
-import PropTypes from 'prop-types';
 import css from './Filter.module.css';
+import { useFilter } from 'hooks/useFilter';
 
-export const Filter = ({ value, onChangeFilter }) => {
+export const Filter = () => {
+   const [filter, changeFilter] = useFilter();
   return (
     <label htmlFor="">
       Find contacts by name
       <input
         className={css.input}
         type="text"
-        value={value}
-        onChange={onChangeFilter}
+        value={filter}
+        onChange={changeFilter}
       />
     </label>
   );
-};
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChangeFilter: PropTypes.func.isRequired,
 };

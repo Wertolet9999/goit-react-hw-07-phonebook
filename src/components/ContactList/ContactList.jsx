@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
 import css from './ContactList.module.css';
+import { useContacts } from 'hooks/useContacts';
 
-export const ContactList = ({ contacts, onDeleteContact }) => {
+export const ContactList = () => {
+const [contacts, ,onDeleteContact] = useContacts();
   return (
     <ul className={css.list}>
       {contacts.map(({ id, name, number }) => (
@@ -20,7 +21,4 @@ export const ContactList = ({ contacts, onDeleteContact }) => {
   );
 };
 
-ContactList.propTypes = {
-  contacts: PropTypes.array.isRequired,
-  onDeleteContact: PropTypes.func.isRequired,
-};
+
